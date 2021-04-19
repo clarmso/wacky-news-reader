@@ -45,4 +45,4 @@ jobs:
         with:
           args: deploy hosting:channel:deploy
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}      - 
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
