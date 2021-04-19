@@ -16,7 +16,9 @@ const Page: React.FC = () => {
     console.log("fetchArticles called");
     try {
       const response = await fetch(
-        "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=pnMUSKMgkVcBjlujv0UlFPPGt1eReYCf"
+        `https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${
+          import.meta.env.VITE_NYT_API_KEY
+        }`
       );
       const data = await response.json();
       setData(data.results);
