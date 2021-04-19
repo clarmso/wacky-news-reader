@@ -41,4 +41,8 @@ jobs:
         run: npm run build
 
       - name: Preview in Firebase 🙈
-        run: npx firebase hosting:channel:deploy preview --token ${{ secrets.FIREBASE_TOKEN }}
+        uses: w9jds/firebase-action@master
+        with:
+          args: hosting:channel:deploy preview
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
