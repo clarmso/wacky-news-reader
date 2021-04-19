@@ -1,0 +1,48 @@
+name: Test and Deploy 
+
+on: 
+  pull_request:
+    paths:
+    - ".github/workflows/test-and-deploy.yaml"
+    - "src/**"
+    - "!.env"
+
+defaults:
+  run:
+    working-directory: .
+
+jobs:
+  build:
+    name: Build 🏗️
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Cache node modules 🚚
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./package-lock.json') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies 🔧
+        run: npm ci
+
+      - name: Build production code 👷
+        run: npm run build
+
+      - name: Preview in Firebase 🙈
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy hosting:channel:deploy
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}      - 
