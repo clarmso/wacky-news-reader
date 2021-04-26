@@ -39,7 +39,7 @@ jobs:
 
       - name: Build production code 👷
         env:
-          API_KEY: ${{ secrets.VITE_NYT_API_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
         run: |
           echo VITE_NYT_API_KEY="$API_KEY" > .env
           npm run build
