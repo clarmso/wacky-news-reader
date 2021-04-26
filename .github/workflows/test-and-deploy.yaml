@@ -42,6 +42,7 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
           echo VITE_NYT_API_KEY="$API_KEY" > .env
+          cat .env
           npm run build
 
       - name: Preview in Firebase 🙈
