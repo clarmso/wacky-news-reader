@@ -1,13 +1,19 @@
 import React from "react";
 import { Grid, Card, CardContent, Typography } from "@material-ui/core";
 
-type NewsProps = {
+export type NewsProps = {
   title: string;
-  author: string;
+  byline: string;
   abstract: string;
+  uri: string;
 };
 
-const News: React.FC<NewsProps> = ({ title, author, abstract }: NewsProps) => {
+const News: React.FC<NewsProps> = ({
+  title,
+  byline,
+  abstract,
+  uri,
+}: NewsProps) => {
   //console.log(`title: ${title} | author: ${author} | abstract: ${abstract}`);
   return (
     <Grid item>
@@ -16,7 +22,7 @@ const News: React.FC<NewsProps> = ({ title, author, abstract }: NewsProps) => {
           <Typography variant="h3" component="h3">
             {title}
           </Typography>
-          <Typography variant="caption">{author}</Typography>
+          <Typography variant="caption">{byline}</Typography>
           <Typography variant="body1">{abstract}</Typography>
         </CardContent>
       </Card>

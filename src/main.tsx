@@ -1,18 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import DarkMode from "./DarkMode";
-import LightMode from "./LightMode";
-import NinetysKids from "./NinetysKids";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import Page from "./Page";
+import About from "./About";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route path="/dark" exact component={DarkMode} />
-        <Route path="/light" exact component={LightMode} />
-        <Route path="/90s" exact component={NinetysKids} />
-        <Route path="/" exact component={LightMode} />
+        <Route path="/" exact component={Page} />
+        <Route path="/about" exact component={About} />
+        <Redirect to="/" />
       </Switch>
     </Router>
   </React.StrictMode>,

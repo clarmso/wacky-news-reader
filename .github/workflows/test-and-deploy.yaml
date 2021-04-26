@@ -38,7 +38,11 @@ jobs:
         run: npm ci
 
       - name: Build production code 👷
-        run: npm run build
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: |
+          echo VITE_NYT_API_KEY="$API_KEY" > .env
+          npm run build
 
       - name: Preview in Firebase 🙈
         uses: w9jds/firebase-action@master
