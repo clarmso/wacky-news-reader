@@ -14,6 +14,8 @@ import { lightTheme, darkTheme, NinetysTheme } from "./Theme";
 import News, { NewsProps } from "./News";
 import nytimesLogoLight from "./img/poweredby_nytimes_200a.png";
 import nytimesLogoDark from "./img/poweredby_nytimes_200c.png";
+import netscape from "./img/netscape.gif";
+import ie from "./img/ms-icon.gif";
 
 const Page: React.FC = () => {
   const [data, setData] = useState([]);
@@ -51,12 +53,13 @@ const Page: React.FC = () => {
     setChoice(selected);
     setTheme(themeDictionary[selected]);
   };
+  const hasGifs = choice === "90s";
 
   return (
     <ThemeProvider theme={appliedTheme}>
       <CssBaseline />
       <Container>
-        <Typography variant="h1" component="h1" align="center">
+        <Typography variant="h2" component="h1" align="center">
           🗞️ Wacky News Reader 🗞️
         </Typography>
         <Grid container spacing={10} justify="center">
@@ -92,7 +95,7 @@ const Page: React.FC = () => {
                 title={d.title}
                 byline={d.byline}
                 abstract={d.abstract}
-                uri={d.uri}
+                hasGifs={hasGifs}
                 key={d.uri}
               />
             );
@@ -106,6 +109,16 @@ const Page: React.FC = () => {
               <img src={nytimesLogoLight} alt="Powered by New York Times" />
             )}
           </Grid>
+          {hasGifs && (
+            <>
+              <Grid item>
+                <img src={ie} alt="Best viewed using Internet Explorer" />
+              </Grid>
+              <Grid item>
+                <img src={netscape} alt="Download Netscape now" />
+              </Grid>
+            </>
+          )}
         </Grid>
       </Container>
     </ThemeProvider>
