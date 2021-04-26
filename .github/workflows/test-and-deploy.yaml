@@ -44,6 +44,8 @@ jobs:
           echo VITE_NYT_API_KEY="$API_KEY" > .env
           cat .env
           npm run build
+          pwd
+          grep $API_KEY assets/index.*.js
 
       - name: Preview in Firebase 🙈
         uses: w9jds/firebase-action@master
