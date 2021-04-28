@@ -27,4 +27,8 @@ const Header: React.FC<HeaderProps> = ({ date }) => {
   );
 };
 
+Header.defaultProps = {
+  date: "",
+};
+
 export default Header;

@@ -44,4 +44,8 @@ const Header: React.FC<ControlProps> = ({ themeChoice, handleChangeTheme }) => {
   );
 };
 
+Header.defaultProps = {
+  themeChoice: themeChoices.LIGHT,
+};
+
 export default Header;

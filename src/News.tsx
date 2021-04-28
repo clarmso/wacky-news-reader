@@ -1,5 +1,11 @@
 import React from "react";
-import { Grid, Card, CardContent, Typography } from "@material-ui/core";
+import {
+  Grid,
+  Card,
+  CardContent,
+  Typography,
+  CircularProgress,
+} from "@material-ui/core";
 import newgif from "./img/new.gif";
 
 type NewsItemProps = {
@@ -53,6 +59,11 @@ const News: React.FC<NewsProps> = ({ data, is90s }) => {
       })}
     </Grid>
   );
+};
+
+News.defaultProps = {
+  data: [],
+  is90s: false,
 };
 
 export default News;
