@@ -1,8 +1,14 @@
 import React from "react";
-import { Grid, Card, CardContent, Typography } from "@material-ui/core";
+import {
+  Grid,
+  Card,
+  CardContent,
+  Typography,
+  CircularProgress,
+} from "@material-ui/core";
 import newgif from "./img/new.gif";
 
-export type NewsProps = {
+type NewsItemProps = {
   title: string;
   byline: string;
   abstract: string;
@@ -10,7 +16,12 @@ export type NewsProps = {
   uri?: string;
 };
 
-const News: React.FC<NewsProps> = ({ title, byline, abstract, is90s }) => {
+const NewsItem: React.FC<NewsItemProps> = ({
+  title,
+  byline,
+  abstract,
+  is90s,
+}) => {
   return (
     <Grid item>
       <Card>
@@ -25,6 +36,34 @@ const News: React.FC<NewsProps> = ({ title, byline, abstract, is90s }) => {
       </Card>
     </Grid>
   );
+};
+
+type NewsProps = {
+  data: NewsItemProps[];
+  is90s: boolean;
+};
+
+const News: React.FC<NewsProps> = ({ data, is90s }) => {
+  return (
+    <Grid container spacing={5} justify="center">
+      {data.map((d: NewsItemProps) => {
+        return (
+          <NewsItem
+            title={d.title}
+            byline={d.byline}
+            abstract={d.abstract}
+            is90s={is90s}
+            key={d.uri}
+          />
+        );
+      })}
+    </Grid>
+  );
+};
+
+News.defaultProps = {
+  data: [],
+  is90s: false,
 };
 
 export default News;
