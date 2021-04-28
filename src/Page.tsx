@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
-import {
-  Container,
-  Grid,
-  RadioGroup,
-  Radio,
-  FormControlLabel,
-  ThemeProvider,
-  CssBaseline,
-} from "@material-ui/core";
+import { Container, ThemeProvider, CssBaseline } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { lightTheme, darkTheme, NinetysTheme } from "./Theme";
 import Header from "./Header";
-import News, { NewsProps } from "./News";
-import Control from "./Control";
+import News from "./News";
+import Control, { themeChoices } from "./Control";
 import Footer from "./Footer";
 
 const Page: React.FC = () => {
@@ -37,43 +29,35 @@ const Page: React.FC = () => {
 
   useEffect(() => {
     console.log("useEffect Called");
-    if (data.length === 0) fetchArticles();
-  });
+    fetchArticles();
+  }, []);
 
   const [theme, setTheme] = useState(lightTheme);
-  const [choice, setChoice] = useState("light");
-  const themeDictionary: { [key: string]: any } = {
-    light: lightTheme,
-    dark: darkTheme,
-    "90s": NinetysTheme,
+  const [themeChoice, setThemeChoice] = useState(themeChoices.LIGHT);
+  const themeDictionary: { [key: string]: object } = {
+    [themeChoices.LIGHT]: lightTheme,
+    [themeChoices.DARK]: darkTheme,
+    [themeChoices.NINETYS]: NinetysTheme,
   };
   const appliedTheme = createMuiTheme(theme);
   const handleChangeTheme = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selected = event.target.value;
-    setChoice(selected);
+    setThemeChoice(selected);
     setTheme(themeDictionary[selected]);
   };
+  const is90s = themeChoice === themeChoices.NINETYS;
 
   return (
     <ThemeProvider theme={appliedTheme}>
       <CssBaseline />
       <Container>
         <Header date={date} />
-        <Control choice={choice} handleChangeTheme={handleChangeTheme} />
-        <Grid container spacing={5} justify="center">
-          {data.map((d: NewsProps) => {
-            return (
-              <News
-                title={d.title}
-                byline={d.byline}
-                abstract={d.abstract}
-                is90s={choice === "90s"}
-                key={d.uri}
-              />
-            );
-          })}
-        </Grid>
-        <Footer is90s={choice === "90s"} mode={choice} />
+        <Control
+          themeChoice={themeChoice}
+          handleChangeTheme={handleChangeTheme}
+        />
+        <News data={data} is90s={is90s} />
+        <Footer themeChoice={themeChoice} is90s={is90s} />
       </Container>
     </ThemeProvider>
   );

@@ -6,16 +6,16 @@ import ie from "./img/ms-icon.gif";
 import nytimesLogoLight from "./img/poweredby_nytimes_200a.png";
 import nytimesLogoDark from "./img/poweredby_nytimes_200c.png";
 
-export type FooterProps = {
+type FooterProps = {
+  themeChoice: string;
   is90s: boolean;
-  mode: string;
 };
 
-const Footer: React.FC<FooterProps> = ({ mode, is90s }) => {
+const Footer: React.FC<FooterProps> = ({ themeChoice, is90s }) => {
   return (
     <Grid container spacing={5} justify="center">
       <Grid item>
-        {mode === "dark" ? (
+        {themeChoice === "dark" ? (
           <img src={nytimesLogoDark} alt="Powered by New York Times" />
         ) : (
           <img src={nytimesLogoLight} alt="Powered by New York Times" />

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Typography } from "@material-ui/core";
 
-export type HeaderProps = {
+type HeaderProps = {
   date: string;
 };
 
@@ -13,7 +13,15 @@ const Header: React.FC<HeaderProps> = ({ date }) => {
         🗞️ Wacky News Reader 🗞️
       </Typography>
       <Typography component="h6" align="center">
-        Last Updated: {date}
+        {date &&
+          new Intl.DateTimeFormat("default", {
+            hour: "numeric",
+            minute: "numeric",
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+            weekday: "long",
+          }).format(Date.parse(date))}
       </Typography>
     </>
   );
