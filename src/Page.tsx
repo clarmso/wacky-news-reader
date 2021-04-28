@@ -5,20 +5,19 @@ import {
   RadioGroup,
   Radio,
   FormControlLabel,
-  Typography,
   ThemeProvider,
   CssBaseline,
 } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { lightTheme, darkTheme, NinetysTheme } from "./Theme";
+import Header from "./Header";
 import News, { NewsProps } from "./News";
-import nytimesLogoLight from "./img/poweredby_nytimes_200a.png";
-import nytimesLogoDark from "./img/poweredby_nytimes_200c.png";
-import netscape from "./img/netscape.gif";
-import ie from "./img/ms-icon.gif";
+import Control from "./Control";
+import Footer from "./Footer";
 
 const Page: React.FC = () => {
   const [data, setData] = useState([]);
+  const [date, setDate] = useState("");
 
   const fetchArticles = async () => {
     console.log("fetchArticles called");
@@ -30,6 +29,7 @@ const Page: React.FC = () => {
       );
       const data = await response.json();
       setData(data.results);
+      setDate(data.last_updated);
     } catch (error) {
       console.log(error);
     }
@@ -53,41 +53,13 @@ const Page: React.FC = () => {
     setChoice(selected);
     setTheme(themeDictionary[selected]);
   };
-  const hasGifs = choice === "90s";
 
   return (
     <ThemeProvider theme={appliedTheme}>
       <CssBaseline />
       <Container>
-        <Typography variant="h2" component="h1" align="center">
-          🗞️ Wacky News Reader 🗞️
-        </Typography>
-        <Grid container spacing={10} justify="center">
-          <Grid item>
-            <RadioGroup
-              name="modes"
-              value={choice}
-              onChange={handleChangeTheme}
-              row
-            >
-              <FormControlLabel
-                value={"light"}
-                control={<Radio color="primary" />}
-                label="Light Mode"
-              />
-              <FormControlLabel
-                value={"dark"}
-                control={<Radio color="primary" />}
-                label="Dark Mode"
-              />
-              <FormControlLabel
-                value={"90s"}
-                control={<Radio color="primary" />}
-                label="90s Mode"
-              />
-            </RadioGroup>
-          </Grid>
-        </Grid>
+        <Header date={date} />
+        <Control choice={choice} handleChangeTheme={handleChangeTheme} />
         <Grid container spacing={5} justify="center">
           {data.map((d: NewsProps) => {
             return (
@@ -95,31 +67,13 @@ const Page: React.FC = () => {
                 title={d.title}
                 byline={d.byline}
                 abstract={d.abstract}
-                hasGifs={hasGifs}
+                is90s={choice === "90s"}
                 key={d.uri}
               />
             );
           })}
         </Grid>
-        <Grid container spacing={5} justify="center">
-          <Grid item>
-            {choice === "dark" ? (
-              <img src={nytimesLogoDark} alt="Powered by New York Times" />
-            ) : (
-              <img src={nytimesLogoLight} alt="Powered by New York Times" />
-            )}
-          </Grid>
-          {hasGifs && (
-            <>
-              <Grid item>
-                <img src={ie} alt="Best viewed using Internet Explorer" />
-              </Grid>
-              <Grid item>
-                <img src={netscape} alt="Download Netscape now" />
-              </Grid>
-            </>
-          )}
-        </Grid>
+        <Footer is90s={choice === "90s"} mode={choice} />
       </Container>
     </ThemeProvider>
   );

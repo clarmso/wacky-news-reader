@@ -6,17 +6,17 @@ export type NewsProps = {
   title: string;
   byline: string;
   abstract: string;
-  hasGifs?: boolean;
+  is90s?: boolean;
   uri?: string;
 };
 
-const News: React.FC<NewsProps> = ({ title, byline, abstract, hasGifs }) => {
+const News: React.FC<NewsProps> = ({ title, byline, abstract, is90s }) => {
   return (
     <Grid item>
       <Card>
         <CardContent>
           <Typography variant="h5" component="h2">
-            {hasGifs && <img src={newgif} alt="Powered by New York Times" />}
+            {is90s && <img src={newgif} alt="New" />}
             {title}
           </Typography>
           <Typography variant="caption">{byline}</Typography>
