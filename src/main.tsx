@@ -6,7 +6,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import Page from "./Page";
+import Page, { sections } from "./Page";
 import About from "./About";
 
 ReactDOM.render(
@@ -14,6 +14,13 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route path="/" exact component={Page} />
+        {Object.values(sections).map((section) => {
+          return (
+            <Route path={"/" + section} exact key={section}>
+              <Page section={section} />
+            </Route>
+          );
+        })}
         <Route path="/about" exact component={About} />
         <Redirect to="/" />
       </Switch>
