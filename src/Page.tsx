@@ -7,19 +7,35 @@ import News from "./News";
 import Control, { themeChoices } from "./Control";
 import Footer from "./Footer";
 
-const Page: React.FC = () => {
+export const sections = {
+  WORLD: "world",
+  BOOKS: "books",
+  TRAVEL: "travel",
+  SCIENCE: "science",
+  SPORTS: "sports",
+  FOOD: "food",
+  HEALTH: "health",
+};
+
+type PageProps = {
+  section: string;
+};
+
+const Page: React.FC<PageProps> = ({ section }) => {
   const [data, setData] = useState([]);
   const [date, setDate] = useState("");
 
   const fetchArticles = async () => {
     console.log("fetchArticles called");
     try {
-      const response = await fetch(
-        `https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${
-          import.meta.env.VITE_NYT_API_KEY
-        }`
+      const url = new URL(
+        `https://api.nytimes.com/svc/topstories/v2/${section}.json`
       );
+      const apiKey = "" + import.meta.env.VITE_NYT_API_KEY;
+      url.searchParams.append("api-key", apiKey);
+      const response = await fetch(url.href);
       const data = await response.json();
+
       setData(data.results);
       setDate(data.last_updated);
     } catch (error) {
@@ -61,6 +77,10 @@ const Page: React.FC = () => {
       </Container>
     </ThemeProvider>
   );
+};
+
+Page.defaultProps = {
+  section: sections.WORLD,
 };
 
 export default Page;
