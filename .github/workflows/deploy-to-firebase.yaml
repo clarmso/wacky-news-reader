@@ -1,9 +1,11 @@
-name: Test and Deploy 
+name: Deploy to Firebase
 
 on: 
-  pull_request:
+  push:
+    branches:
+      - main
     paths:
-    - ".github/workflows/test-and-deploy.yaml"
+    - ".github/workflows/deploy-to-firebase.yaml"
     - "src/**"
     - "!.env"
 
@@ -13,7 +15,7 @@ defaults:
 
 jobs:
   build:
-    name: Build and Preview 🏗️👀
+    name: Build and deploy 🏗️🔥
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -37,16 +39,16 @@ jobs:
       - name: Install dependencies 🔧
         run: npm ci
 
-      - name: Build production code 👷
+      - name: Build production code 🏗️👷
         env:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
           echo VITE_NYT_API_KEY="$API_KEY" > .env
           npm run build
 
-      - name: Preview in Firebase 🙈
+      - name: Deploy to Firebase 🔥
         uses: w9jds/firebase-action@master
         with:
-          args: hosting:channel:deploy preview
+          args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

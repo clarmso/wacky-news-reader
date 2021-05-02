@@ -1,0 +1,52 @@
+name: Preview 👀
+
+on: 
+  pull_request:
+    paths:
+    - ".github/workflows/preview.yaml"
+    - "src/**"
+    - "!.env"
+
+defaults:
+  run:
+    working-directory: .
+
+jobs:
+  build:
+    name: Build and Preview 🏗️👀
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Node 🔨
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Cache node modules 🚚
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./package-lock.json') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies 🔧
+        run: npm ci
+
+      - name: Build production code 🏗️👷
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: |
+          echo VITE_NYT_API_KEY="$API_KEY" > .env
+          npm run build
+
+      - name: Preview on Firebase 🙈
+        uses: w9jds/firebase-action@master
+        with:
+          args: hosting:channel:deploy preview
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
