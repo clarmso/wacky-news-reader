@@ -13,7 +13,7 @@ defaults:
 
 jobs:
   build:
-    name: Build and Preview 🏗️
+    name: Build 🏗️
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -88,7 +88,7 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
   preview:
-    name: Build and Preview 🏗️👀
+    name: Preview 👀
     needs: test
     runs-on: ubuntu-20.04
     steps:
