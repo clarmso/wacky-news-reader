@@ -1,13 +1,13 @@
 name: Deploy to Firebase
 
-on: 
+on:
   push:
     branches:
       - main
     paths:
-    - ".github/workflows/deploy-to-firebase.yaml"
-    - "src/**"
-    - "!.env"
+      - ".github/workflows/deploy-to-firebase.yaml"
+      - "src/**"
+      - "!.env"
 
 defaults:
   run:
@@ -15,18 +15,10 @@ defaults:
 
 jobs:
   build:
-    name: Build and deploy 🏗️🔥
+    name: Build 🏗️
     runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        browser: [chrome, firefox]
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install Node 🔨
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
 
       - name: Cache node modules 🚚
         uses: actions/cache@v2
@@ -49,10 +41,46 @@ jobs:
           echo VITE_NYT_API_KEY="$API_KEY" > .env
           npm run build
 
+      - name: Upload build files 🗃️
+        uses: actions/upload-artifact@v2
+        with:
+          name: wacky-news-reader-repo
+          path: |
+            ./**
+            !./node_modules/**
+
+  test:
+    name: Run tests ✅
+    needs: build
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        browser: [chrome, firefox]
+    steps:
+      - name: Fetch build files 🗃️
+        uses: actions/download-artifact@v2
+        with:
+          name: wacky-news-reader-repo
+          path: .
+
+      - name: Cache node modules 🚚
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./package-lock.json') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies 🔧
+        run: npm ci
+
       - name: Run e2e tests ✅
         uses: cypress-io/github-action@v2
         with:
-          start: npx run serve:ci
+          start: npm run serve:ci
           wait-on: http://localhost:5000
           browser: ${{ matrix.browser }}
           headless: true
@@ -61,7 +89,32 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
-      - name: Deploy to Firebase 🔥
+  deploy:
+    name: Deploy 🙈
+    needs: test
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Fetch build files 🗃️
+        uses: actions/download-artifact@v2
+        with:
+          name: wacky-news-reader-repo
+          path: .
+
+      - name: Cache node modules 🚚
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./package-lock.json') }}
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies 🔧
+        run: npm ci
+
+      - name: Deploy to Firebase 🙈
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
