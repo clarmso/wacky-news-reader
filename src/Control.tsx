@@ -28,16 +28,19 @@ const Header: React.FC<ControlProps> = ({ themeChoice, handleChangeTheme }) => {
               value={themeChoices.LIGHT}
               control={<Radio color="primary" />}
               label="Light Mode"
+              data-cy="light-mode"
             />
             <FormControlLabel
               value={themeChoices.DARK}
               control={<Radio color="primary" />}
               label="Dark Mode"
+              data-cy="dark-mode"
             />
             <FormControlLabel
               value={themeChoices.NINETYS}
               control={<Radio color="primary" />}
               label="90s Mode"
+              data-cy="90s-mode"
             />
           </RadioGroup>
         </Grid>

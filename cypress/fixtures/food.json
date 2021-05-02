@@ -1,0 +1,86 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2021 The New York Times Company. All Rights Reserved.",
+  "section": "Food",
+  "last_updated": "2021-04-30T16:53:16-04:00",
+  "num_results": 1,
+  "results": [
+    {
+      "section": "dining",
+      "subsection": "",
+      "title": "A Year of Cooking With My Mother",
+      "abstract": "I’ve eaten her food my whole life. This pandemic made me realize how much I didn’t know about her process.",
+      "url": "https://www.nytimes.com/2021/04/30/dining/korean-family-recipes.html",
+      "uri": "nyt://article/49723e93-165e-59c5-9ab2-f487642a9a07",
+      "byline": "By Eric Kim",
+      "item_type": "Article",
+      "updated_date": "2021-05-01T09:48:43-04:00",
+      "created_date": "2021-04-30T12:54:29-04:00",
+      "published_date": "2021-04-30T12:54:29-04:00",
+      "material_type_facet": "",
+      "kicker": "",
+      "des_facet": [
+        "Cooking and Cookbooks",
+        "Mother's Day",
+        "Korean Food (Cuisine)",
+        "Kimchi (South Korean Food)"
+      ],
+      "org_facet": [],
+      "per_facet": ["Kim, Eric (Author)"],
+      "geo_facet": ["Atlanta (Ga)"],
+      "multimedia": [
+        {
+          "url": "https://static01.nyt.com/images/2021/05/05/dining/05Mother-Eric-Kim-His-Mom/05Mother-Eric-Kim-His-Mom-superJumbo-v2.jpg",
+          "format": "superJumbo",
+          "height": 1408,
+          "width": 2048,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "The author with his mother, Jean, in Atlanta in the early 1990s.",
+          "copyright": "Eric Kim"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/05/dining/05Mother-Eric-Kim-His-Mom/05Mother-Eric-Kim-His-Mom-thumbStandard-v2.jpg",
+          "format": "Standard Thumbnail",
+          "height": 75,
+          "width": 75,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "The author with his mother, Jean, in Atlanta in the early 1990s.",
+          "copyright": "Eric Kim"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/05/dining/05Mother-Eric-Kim-His-Mom/05Mother-Eric-Kim-His-Mom-thumbLarge-v2.jpg",
+          "format": "thumbLarge",
+          "height": 150,
+          "width": 150,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "The author with his mother, Jean, in Atlanta in the early 1990s.",
+          "copyright": "Eric Kim"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/05/dining/05Mother-Eric-Kim-His-Mom/05Mother-Eric-Kim-His-Mom-mediumThreeByTwo210-v3.jpg",
+          "format": "mediumThreeByTwo210",
+          "height": 140,
+          "width": 210,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "The author with his mother, Jean, in Atlanta in the early 1990s.",
+          "copyright": "Eric Kim"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/05/dining/05Mother-Eric-Kim-His-Mom/05Mother-Eric-Kim-His-Mom-articleInline-v2.jpg",
+          "format": "Normal",
+          "height": 131,
+          "width": 190,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "The author with his mother, Jean, in Atlanta in the early 1990s.",
+          "copyright": "Eric Kim"
+        }
+      ],
+      "short_url": "https://nyti.ms/3u9xP4r"
+    }
+  ]
+}
