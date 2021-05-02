@@ -1,0 +1,88 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2021 The New York Times Company. All Rights Reserved.",
+  "section": "Sports",
+  "last_updated": "2021-05-01T21:05:05-04:00",
+  "num_results": 1,
+  "results": [
+    {
+      "section": "sports",
+      "subsection": "horse-racing",
+      "title": "Medina Spirit Wins the 147th Kentucky Derby",
+      "abstract": "The trainer Bob Baffert collected his seventh Derby victory while the favorite, Essential Quality, faltered and finished fourth.",
+      "url": "https://www.nytimes.com/2021/05/01/sports/horse-racing/medina-spirit-wins-kentucky-derby.html",
+      "uri": "nyt://article/24a9bd29-09df-513f-a77f-c4650b6c9f31",
+      "byline": "By Joe Drape",
+      "item_type": "Article",
+      "updated_date": "2021-05-02T00:47:36-04:00",
+      "created_date": "2021-05-01T00:01:10-04:00",
+      "published_date": "2021-05-01T00:01:10-04:00",
+      "material_type_facet": "",
+      "kicker": "",
+      "des_facet": [
+        "Horse Racing",
+        "Kentucky Derby",
+        "Triple Crown (Horse Racing)",
+        "Jockeys, Drivers and Trainers",
+        "Quarantines",
+        "Doping (Sports)"
+      ],
+      "org_facet": ["Churchill Downs Inc"],
+      "per_facet": [],
+      "geo_facet": [],
+      "multimedia": [
+        {
+          "url": "https://static01.nyt.com/images/2021/05/01/sports/01derby-whattowatch-new-toned/01derby-whattowatch-new-toned-superJumbo.jpg",
+          "format": "superJumbo",
+          "height": 1365,
+          "width": 2048,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Medina Spirit held off a fierce challenge at the finish.",
+          "copyright": "Christian Hansen for The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/01/sports/01derby-whattowatch-new-toned/01derby-whattowatch-new-toned-thumbStandard.jpg",
+          "format": "Standard Thumbnail",
+          "height": 75,
+          "width": 75,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Medina Spirit held off a fierce challenge at the finish.",
+          "copyright": "Christian Hansen for The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/01/sports/01derby-whattowatch-new-toned/01derby-whattowatch-new-toned-thumbLarge.jpg",
+          "format": "thumbLarge",
+          "height": 150,
+          "width": 150,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Medina Spirit held off a fierce challenge at the finish.",
+          "copyright": "Christian Hansen for The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/01/sports/01derby-whattowatch-new-toned/01derby-whattowatch-new-toned-mediumThreeByTwo210.jpg",
+          "format": "mediumThreeByTwo210",
+          "height": 140,
+          "width": 210,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Medina Spirit held off a fierce challenge at the finish.",
+          "copyright": "Christian Hansen for The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/01/sports/01derby-whattowatch-new-toned/01derby-whattowatch-new-toned-articleInline.jpg",
+          "format": "Normal",
+          "height": 127,
+          "width": 190,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Medina Spirit held off a fierce challenge at the finish.",
+          "copyright": "Christian Hansen for The New York Times"
+        }
+      ],
+      "short_url": "https://nyti.ms/3xHkYbW"
+    }
+  ]
+}

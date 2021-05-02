@@ -1,0 +1,86 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2021 The New York Times Company. All Rights Reserved.",
+  "section": "Science",
+  "last_updated": "2021-05-02T01:36:13-04:00",
+  "num_results": 1,
+  "results": [
+    {
+      "section": "at-home",
+      "subsection": "",
+      "title": "This Spring, Get the Balls Rolling",
+      "abstract": "In this era of social distancing, lawn games like croquet, badminton and horseshoes offer a great way to spend some time outside.",
+      "url": "https://www.nytimes.com/2021/05/01/at-home/lawn-games.html",
+      "uri": "nyt://article/8cb9fd2f-910f-575c-a962-72c7ba23784d",
+      "byline": "By Alexis Soloski",
+      "item_type": "Article",
+      "updated_date": "2021-05-01T23:42:05-04:00",
+      "created_date": "2021-05-01T23:42:05-04:00",
+      "published_date": "2021-05-01T23:42:05-04:00",
+      "material_type_facet": "",
+      "kicker": "",
+      "des_facet": [
+        "Quarantine (Life and Culture)",
+        "Content Type: Service",
+        "Croquet",
+        "Horseshoe Throwing"
+      ],
+      "org_facet": [],
+      "per_facet": [],
+      "geo_facet": [],
+      "multimedia": [
+        {
+          "url": "https://static01.nyt.com/images/2021/05/02/multimedia/02ah-lawngames1/02ah-lawngames1-superJumbo.jpg",
+          "format": "superJumbo",
+          "height": 1366,
+          "width": 2048,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Enjoying a game of croquet at the Merry Hill Lodge in Cresko, Pa., in 1956.",
+          "copyright": "Robert Walker/The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/02/multimedia/02ah-lawngames1/02ah-lawngames1-thumbStandard.jpg",
+          "format": "Standard Thumbnail",
+          "height": 75,
+          "width": 75,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Enjoying a game of croquet at the Merry Hill Lodge in Cresko, Pa., in 1956.",
+          "copyright": "Robert Walker/The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/02/multimedia/02ah-lawngames1/02ah-lawngames1-thumbLarge.jpg",
+          "format": "thumbLarge",
+          "height": 150,
+          "width": 150,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Enjoying a game of croquet at the Merry Hill Lodge in Cresko, Pa., in 1956.",
+          "copyright": "Robert Walker/The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/02/multimedia/02ah-lawngames1/02ah-lawngames1-mediumThreeByTwo210.jpg",
+          "format": "mediumThreeByTwo210",
+          "height": 140,
+          "width": 210,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Enjoying a game of croquet at the Merry Hill Lodge in Cresko, Pa., in 1956.",
+          "copyright": "Robert Walker/The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/02/multimedia/02ah-lawngames1/02ah-lawngames1-articleInline.jpg",
+          "format": "Normal",
+          "height": 127,
+          "width": 190,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Enjoying a game of croquet at the Merry Hill Lodge in Cresko, Pa., in 1956.",
+          "copyright": "Robert Walker/The New York Times"
+        }
+      ],
+      "short_url": "https://nyti.ms/3uocOmE"
+    }
+  ]
+}

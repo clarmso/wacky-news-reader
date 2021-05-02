@@ -8,13 +8,13 @@ import Control, { themeChoices } from "./Control";
 import Footer from "./Footer";
 
 export const sections = {
-  WORLD: "world",
   BOOKS: "books",
-  TRAVEL: "travel",
-  SCIENCE: "science",
-  SPORTS: "sports",
   FOOD: "food",
   HEALTH: "health",
+  SCIENCE: "science",
+  SPORTS: "sports",
+  TRAVEL: "travel",
+  WORLD: "world",
 };
 
 type PageProps = {

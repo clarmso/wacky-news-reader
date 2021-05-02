@@ -1,13 +1,13 @@
 name: Deploy to Firebase
 
-on: 
+on:
   push:
     branches:
       - main
     paths:
-    - ".github/workflows/deploy-to-firebase.yaml"
-    - "src/**"
-    - "!.env"
+      - ".github/workflows/deploy-to-firebase.yaml"
+      - "src/**"
+      - "!.env"
 
 defaults:
   run:
@@ -15,15 +15,10 @@ defaults:
 
 jobs:
   build:
-    name: Build and deploy 🏗️🔥
+    name: Build, test and deploy 🏗️
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install Node 🔨
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
 
       - name: Cache node modules 🚚
         uses: actions/cache@v2
@@ -46,7 +41,31 @@ jobs:
           echo VITE_NYT_API_KEY="$API_KEY" > .env
           npm run build
 
-      - name: Deploy to Firebase 🔥
+      - name: Run e2e tests (Chrome) ✅
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm run serve:ci
+          wait-on: http://localhost:5000
+          browser: chrome
+          headless: true
+          config: baseUrl=http://localhost:5000
+          record: false
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: Run e2e tests (Firefox) ✅
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm run serve:ci
+          wait-on: http://localhost:5000
+          browser: chrome
+          headless: true
+          config: baseUrl=http://localhost:5000
+          record: false
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: Deploy to Firebase 🙈
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting

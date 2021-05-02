@@ -1,0 +1,86 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2021 The New York Times Company. All Rights Reserved.",
+  "section": "Travel",
+  "last_updated": "2021-04-30T09:02:38-04:00",
+  "num_results": 1,
+  "results": [
+    {
+      "section": "travel",
+      "subsection": "",
+      "title": "Surprise Mom With a Floral Cocktail",
+      "abstract": "Flowers are magic. They are beautiful, uplifting and, when added to a drink, incredibly refreshing.",
+      "url": "https://www.nytimes.com/2021/05/01/travel/floral-cocktails.html",
+      "uri": "nyt://article/0ce53b62-7941-5b29-a81c-b4e00f0e1f0f",
+      "byline": "By Cassie Winslow",
+      "item_type": "Article",
+      "updated_date": "2021-05-01T23:21:05-04:00",
+      "created_date": "2021-05-01T23:21:05-04:00",
+      "published_date": "2021-05-01T23:21:05-04:00",
+      "material_type_facet": "",
+      "kicker": "Drink These",
+      "des_facet": [
+        "Content Type: Service",
+        "Cocktails and Mixed Drinks",
+        "Flowers and Plants",
+        "Quarantine (Life and Culture)"
+      ],
+      "org_facet": [],
+      "per_facet": [],
+      "geo_facet": [],
+      "multimedia": [
+        {
+          "url": "https://static01.nyt.com/images/2021/05/02/multimedia/02ah-floralcocktail/02ah-floralcocktail-superJumbo.jpg",
+          "format": "superJumbo",
+          "height": 1365,
+          "width": 2048,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "David Malosh for The New York Times. Food Stylist: Simon Andrews."
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/02/multimedia/02ah-floralcocktail/02ah-floralcocktail-thumbStandard.jpg",
+          "format": "Standard Thumbnail",
+          "height": 75,
+          "width": 75,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "David Malosh for The New York Times. Food Stylist: Simon Andrews."
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/02/multimedia/02ah-floralcocktail/02ah-floralcocktail-thumbLarge.jpg",
+          "format": "thumbLarge",
+          "height": 150,
+          "width": 150,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "David Malosh for The New York Times. Food Stylist: Simon Andrews."
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/02/multimedia/02ah-floralcocktail/02ah-floralcocktail-mediumThreeByTwo210.jpg",
+          "format": "mediumThreeByTwo210",
+          "height": 140,
+          "width": 210,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "David Malosh for The New York Times. Food Stylist: Simon Andrews."
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/02/multimedia/02ah-floralcocktail/02ah-floralcocktail-articleInline.jpg",
+          "format": "Normal",
+          "height": 131,
+          "width": 190,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "David Malosh for The New York Times. Food Stylist: Simon Andrews."
+        }
+      ],
+      "short_url": "https://nyti.ms/3nDUG5T"
+    }
+  ]
+}

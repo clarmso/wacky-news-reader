@@ -1,0 +1,88 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2021 The New York Times Company. All Rights Reserved.",
+  "section": "World News",
+  "last_updated": "2021-05-01T16:18:23-04:00",
+  "num_results": 1,
+  "results": [
+    {
+      "section": "world",
+      "subsection": "asia",
+      "title": "India’s Covid-19 Crisis Shakes Modi’s Image of Strength",
+      "abstract": "Overconfidence and missteps contributed to the country’s devastating second wave, his critics say, tarnishing the prime minister’s aura of political invulnerability.",
+      "url": "https://www.nytimes.com/2021/05/01/world/asia/india-covid19-modi.html",
+      "uri": "nyt://article/f912f3d0-683d-596e-9517-cced8f2307e8",
+      "byline": "By Jeffrey Gettleman, Hari Kumar, Karan Deep Singh and Sameer Yasir",
+      "item_type": "Article",
+      "updated_date": "2021-05-02T00:33:40-04:00",
+      "created_date": "2021-05-01T05:00:35-04:00",
+      "published_date": "2021-05-01T05:00:35-04:00",
+      "material_type_facet": "",
+      "kicker": "",
+      "des_facet": [
+        "Politics and Government",
+        "Coronavirus (2019-nCoV)",
+        "Vaccination and Immunization",
+        "Nationalism (Theory and Philosophy)",
+        "Deaths (Fatalities)",
+        "Infections"
+      ],
+      "org_facet": ["Bharatiya Janata Party"],
+      "per_facet": ["Modi, Narendra"],
+      "geo_facet": ["India"],
+      "multimedia": [
+        {
+          "url": "https://static01.nyt.com/images/2021/05/01/world/01virus-india-modi-1/merlin_185842452_eccb9621-b4bc-4a61-aa90-523ea72890d1-superJumbo.jpg",
+          "format": "superJumbo",
+          "height": 1365,
+          "width": 2048,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "An image of Narendra Modi, India’s prime minister, in Kolkata ahead of state elections.",
+          "copyright": "Saumya Khandelwal for The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/01/world/01virus-india-modi-1/01virus-india-modi-1-thumbStandard.jpg",
+          "format": "Standard Thumbnail",
+          "height": 75,
+          "width": 75,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "An image of Narendra Modi, India’s prime minister, in Kolkata ahead of state elections.",
+          "copyright": "Saumya Khandelwal for The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/01/world/01virus-india-modi-1/01virus-india-modi-1-thumbLarge.jpg",
+          "format": "thumbLarge",
+          "height": 150,
+          "width": 150,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "An image of Narendra Modi, India’s prime minister, in Kolkata ahead of state elections.",
+          "copyright": "Saumya Khandelwal for The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/01/world/01virus-india-modi-1/merlin_185842452_eccb9621-b4bc-4a61-aa90-523ea72890d1-mediumThreeByTwo210.jpg",
+          "format": "mediumThreeByTwo210",
+          "height": 140,
+          "width": 210,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "An image of Narendra Modi, India’s prime minister, in Kolkata ahead of state elections.",
+          "copyright": "Saumya Khandelwal for The New York Times"
+        },
+        {
+          "url": "https://static01.nyt.com/images/2021/05/01/world/01virus-india-modi-1/merlin_185842452_eccb9621-b4bc-4a61-aa90-523ea72890d1-articleInline.jpg",
+          "format": "Normal",
+          "height": 127,
+          "width": 190,
+          "type": "image",
+          "subtype": "photo",
+          "caption": "An image of Narendra Modi, India’s prime minister, in Kolkata ahead of state elections.",
+          "copyright": "Saumya Khandelwal for The New York Times"
+        }
+      ],
+      "short_url": "https://nyti.ms/3xHqVWC"
+    }
+  ]
+}
