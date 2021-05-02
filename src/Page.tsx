@@ -25,26 +25,23 @@ const Page: React.FC<PageProps> = ({ section }) => {
   const [data, setData] = useState([]);
   const [date, setDate] = useState("");
 
-  const fetchArticles = async () => {
-    console.log("fetchArticles called");
-    try {
-      const url = new URL(
-        `https://api.nytimes.com/svc/topstories/v2/${section}.json`
-      );
-      const apiKey = "" + import.meta.env.VITE_NYT_API_KEY;
-      url.searchParams.append("api-key", apiKey);
-      const response = await fetch(url.href);
-      const data = await response.json();
-
-      setData(data.results);
-      setDate(data.last_updated);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    console.log("useEffect Called");
+    const fetchArticles = async () => {
+      try {
+        const url = new URL(
+          `https://api.nytimes.com/svc/topstories/v2/${section}.json`
+        );
+        const apiKey = "" + import.meta.env.VITE_NYT_API_KEY;
+        url.searchParams.append("api-key", apiKey);
+        const response = await fetch(url.href);
+        const data = await response.json();
+
+        setData(data.results);
+        setDate(data.last_updated);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetchArticles();
   }, []);
 
