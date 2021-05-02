@@ -13,7 +13,7 @@ defaults:
 
 jobs:
   build:
-    name: Build 🏗️
+    name: Build, test and preview 🏗️
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -39,78 +39,29 @@ jobs:
           echo VITE_NYT_API_KEY="$API_KEY" > .env
           npm run build
 
-      - name: Upload build files 🗃️
-        uses: actions/upload-artifact@v2
-        with:
-          name: wacky-news-reader-repo
-          path: |
-            ./**
-            !./node_modules/**
-
-  test:
-    name: Run tests ✅
-    needs: build
-    runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        browser: [chrome, firefox]
-    steps:
-      - name: Fetch build files 🗃️
-        uses: actions/download-artifact@v2
-        with:
-          name: wacky-news-reader-repo
-          path: .
-
-      - name: Cache node modules 🚚
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./package-lock.json') }}
-          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - name: Install dependencies 🔧
-        run: npm ci
-
-      - name: Run e2e tests ✅
+      - name: Run e2e tests (Chrome) ✅
         uses: cypress-io/github-action@v2
         with:
           start: npm run serve:ci
           wait-on: http://localhost:5000
-          browser: ${{ matrix.browser }}
+          browser: chrome
           headless: true
           config: baseUrl=http://localhost:5000
           record: false
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
-  preview:
-    name: Preview 👀
-    needs: test
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Fetch build files 🗃️
-        uses: actions/download-artifact@v2
+      - name: Run e2e tests (Firefox) ✅
+        uses: cypress-io/github-action@v2
         with:
-          name: wacky-news-reader-repo
-          path: .
-
-      - name: Cache node modules 🚚
-        uses: actions/cache@v2
+          start: npm run serve:ci
+          wait-on: http://localhost:5000
+          browser: chrome
+          headless: true
+          config: baseUrl=http://localhost:5000
+          record: false
         env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./package-lock.json') }}
-          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - name: Install dependencies 🔧
-        run: npm ci
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Preview on Firebase 👀
         uses: w9jds/firebase-action@master
