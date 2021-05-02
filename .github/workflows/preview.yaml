@@ -15,6 +15,9 @@ jobs:
   build:
     name: Build and Preview 🏗️👀
     runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        browser: [chrome, firefox]
     steps:
       - uses: actions/checkout@v2
 
@@ -43,6 +46,18 @@ jobs:
         run: |
           echo VITE_NYT_API_KEY="$API_KEY" > .env
           npm run build
+
+      - name: Run e2e tests ✅
+        uses: cypress-io/github-action@v2
+        with:
+          start: npx run serve:ci
+          wait-on: http://localhost:5000
+          browser: ${{ matrix.browser }}
+          headless: true
+          config: baseUrl=http://localhost:5000
+          record: false
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Preview on Firebase 🙈
         uses: w9jds/firebase-action@master
