@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Container, ThemeProvider, CssBaseline } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { lightTheme, darkTheme, NinetysTheme } from "./Theme";
@@ -6,6 +6,7 @@ import Header from "./Header";
 import News from "./News";
 import Control, { themeChoices } from "./Control";
 import Footer from "./Footer";
+import { NewsItemProps } from "./News";
 
 export const sections = {
   BOOKS: "books",
@@ -22,31 +23,32 @@ type PageProps = {
 };
 
 const Page: React.FC<PageProps> = ({ section }) => {
-  const [data, setData] = useState([]);
-  const [date, setDate] = useState("");
+  const [data, setData] = useState<NewsItemProps[]>([]);
+  const [date, setDate] = useState<string>("");
+
+  const fetchArticles = useCallback(async () => {
+    try {
+      const url = new URL(
+        `https://api.nytimes.com/svc/topstories/v2/${section}.json`
+      );
+      const apiKey = "" + import.meta.env.VITE_NYT_API_KEY;
+      url.searchParams.append("api-key", apiKey);
+      const response = await fetch(url.href);
+      const data = await response.json();
+
+      setData(data.results);
+      setDate(data.last_updated);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [section]);
 
   useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const url = new URL(
-          `https://api.nytimes.com/svc/topstories/v2/${section}.json`
-        );
-        const apiKey = "" + import.meta.env.VITE_NYT_API_KEY;
-        url.searchParams.append("api-key", apiKey);
-        const response = await fetch(url.href);
-        const data = await response.json();
-
-        setData(data.results);
-        setDate(data.last_updated);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     fetchArticles();
-  }, []);
+  }, [fetchArticles]);
 
-  const [theme, setTheme] = useState(lightTheme);
-  const [themeChoice, setThemeChoice] = useState(themeChoices.LIGHT);
+  const [theme, setTheme] = useState<object>(lightTheme);
+  const [themeChoice, setThemeChoice] = useState<string>(themeChoices.LIGHT);
   const themeDictionary: { [key: string]: object } = {
     [themeChoices.LIGHT]: lightTheme,
     [themeChoices.DARK]: darkTheme,
@@ -64,7 +66,7 @@ const Page: React.FC<PageProps> = ({ section }) => {
     <ThemeProvider theme={appliedTheme}>
       <CssBaseline />
       <Container>
-        <Header date={date} />
+        <Header date={date} is90s={is90s} />
         <Control
           themeChoice={themeChoice}
           handleChangeTheme={handleChangeTheme}
