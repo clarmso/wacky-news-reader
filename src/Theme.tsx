@@ -1,3 +1,5 @@
+import backgroundImage90s from "./img/pattern90s.png";
+
 export const lightTheme = {
   overrides: {
     MuiCssBaseline: {
@@ -39,7 +41,7 @@ export const NinetysTheme = {
     MuiCssBaseline: {
       "@global": {
         body: {
-          backgroundImage: `url("/src/img/pattern90s.png")`,
+          backgroundImage: `url(${backgroundImage90s})`,
         },
       },
     },
