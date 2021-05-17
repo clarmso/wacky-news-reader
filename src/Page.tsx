@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Container, ThemeProvider, CssBaseline } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
-import { lightTheme, darkTheme, NinetysTheme } from "./Theme";
 import Header from "./Header";
 import News from "./News";
-import Control, { themeChoices } from "./Control";
+import Control from "./Control";
 import Footer from "./Footer";
-import { NewsItemProps } from "./News";
+import { WackyState } from "./connect/reducer";
+import { fetchArticles } from "./connect/actions";
 
 export const sections = {
   BOOKS: "books",
@@ -23,56 +24,23 @@ type PageProps = {
 };
 
 const Page: React.FC<PageProps> = ({ section }) => {
-  const [data, setData] = useState<NewsItemProps[]>([]);
-  const [date, setDate] = useState<string>("");
-
-  const fetchArticles = useCallback(async () => {
-    try {
-      const url = new URL(
-        `https://api.nytimes.com/svc/topstories/v2/${section}.json`
-      );
-      const apiKey = "" + import.meta.env.VITE_NYT_API_KEY;
-      url.searchParams.append("api-key", apiKey);
-      const response = await fetch(url.href);
-      const data = await response.json();
-
-      setData(data.results);
-      setDate(data.last_updated);
-    } catch (error) {
-      console.log(error);
-    }
-  }, [section]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchArticles();
-  }, [fetchArticles]);
+    dispatch(fetchArticles(section));
+  }, [dispatch]);
 
-  const [theme, setTheme] = useState<object>(lightTheme);
-  const [themeChoice, setThemeChoice] = useState<string>(themeChoices.LIGHT);
-  const themeDictionary: { [key: string]: object } = {
-    [themeChoices.LIGHT]: lightTheme,
-    [themeChoices.DARK]: darkTheme,
-    [themeChoices.NINETYS]: NinetysTheme,
-  };
+  const theme = useSelector((state: WackyState) => state.theme);
   const appliedTheme = createMuiTheme(theme);
-  const handleChangeTheme = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selected = event.target.value;
-    setThemeChoice(selected);
-    setTheme(themeDictionary[selected]);
-  };
-  const is90s = themeChoice === themeChoices.NINETYS;
 
   return (
     <ThemeProvider theme={appliedTheme}>
       <CssBaseline />
       <Container>
-        <Header date={date} is90s={is90s} />
-        <Control
-          themeChoice={themeChoice}
-          handleChangeTheme={handleChangeTheme}
-        />
-        <News data={data} is90s={is90s} />
-        <Footer themeChoice={themeChoice} is90s={is90s} />
+        <Header />
+        <Control />
+        <News />
+        <Footer />
       </Container>
     </ThemeProvider>
   );

@@ -1,15 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Grid, Card, CardContent, Typography, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import newgif from "./img/new.gif";
+import { WackyState } from "./connect/reducer";
 
 export type NewsItemProps = {
   title: string;
   byline: string;
   abstract: string;
   updated_date: string;
+  is90s: boolean;
   url: string;
-  is90s?: boolean;
   uri?: string;
 };
 
@@ -24,9 +26,9 @@ const NewsItem: React.FC<NewsItemProps> = ({
   title,
   byline,
   updated_date,
+  is90s,
   abstract,
   url,
-  is90s,
 }) => {
   const classes = useStyles();
   const formattedDate = new Intl.DateTimeFormat("default", {
@@ -60,34 +62,27 @@ const NewsItem: React.FC<NewsItemProps> = ({
   );
 };
 
-type NewsProps = {
-  data: NewsItemProps[];
-  is90s: boolean;
-};
-
-const News: React.FC<NewsProps> = ({ data, is90s }) => {
+const News: React.FC = () => {
+  const data = useSelector((state: WackyState) => state.news);
+  const is90s = useSelector((state: WackyState) => state.is90s);
   return (
     <Grid container spacing={2} justify="center">
-      {data.map((d: NewsItemProps) => {
-        return (
-          <NewsItem
-            title={d.title}
-            byline={d.byline}
-            updated_date={d.updated_date}
-            abstract={d.abstract}
-            url={d.url}
-            is90s={is90s}
-            key={d.uri}
-          />
-        );
-      })}
+      {data &&
+        data.map((d: NewsItemProps) => {
+          return (
+            <NewsItem
+              title={d.title}
+              byline={d.byline}
+              updated_date={d.updated_date}
+              abstract={d.abstract}
+              is90s={is90s}
+              url={d.url}
+              key={d.uri}
+            />
+          );
+        })}
     </Grid>
   );
-};
-
-News.defaultProps = {
-  data: [],
-  is90s: false,
 };
 
 export default News;
