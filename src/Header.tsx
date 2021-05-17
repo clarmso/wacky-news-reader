@@ -5,6 +5,7 @@ import { Grid, Typography } from "@material-ui/core";
 
 import retroHeader from "./img/wordart.png";
 import { WackyState } from "./connect/reducer";
+import { formatDate } from "./utilities/date";
 
 const Header: React.FC = () => {
   const is90s = useSelector((state: WackyState) => state.is90s);
@@ -20,15 +21,7 @@ const Header: React.FC = () => {
           </Typography>
         )}
         <Typography component="h6" align="center">
-          {date &&
-            new Intl.DateTimeFormat("default", {
-              hour: "numeric",
-              minute: "numeric",
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-              weekday: "long",
-            }).format(Date.parse(date))}
+          {date && formatDate(date)}
         </Typography>
       </Grid>
     </Grid>
