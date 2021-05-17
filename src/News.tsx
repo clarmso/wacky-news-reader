@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Grid, Card, CardContent, Typography, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import newgif from "./img/new.gif";
+import { wackyState } from "./connect/reducer";
 
 export type NewsItemProps = {
   title: string;
@@ -9,7 +11,6 @@ export type NewsItemProps = {
   abstract: string;
   updated_date: string;
   url: string;
-  is90s?: boolean;
   uri?: string;
 };
 
@@ -26,9 +27,9 @@ const NewsItem: React.FC<NewsItemProps> = ({
   updated_date,
   abstract,
   url,
-  is90s,
 }) => {
   const classes = useStyles();
+  const is90s = useSelector((state: wackyState) => state.is90s);
   const formattedDate = new Intl.DateTimeFormat("default", {
     hour: "numeric",
     minute: "numeric",
@@ -62,10 +63,10 @@ const NewsItem: React.FC<NewsItemProps> = ({
 
 type NewsProps = {
   data: NewsItemProps[];
-  is90s: boolean;
 };
 
-const News: React.FC<NewsProps> = ({ data, is90s }) => {
+const News: React.FC<NewsProps> = ({ data }) => {
+  const is90s = useSelector((state: wackyState) => state.is90s);
   return (
     <Grid container spacing={2} justify="center">
       {data.map((d: NewsItemProps) => {
@@ -76,7 +77,6 @@ const News: React.FC<NewsProps> = ({ data, is90s }) => {
             updated_date={d.updated_date}
             abstract={d.abstract}
             url={d.url}
-            is90s={is90s}
             key={d.uri}
           />
         );
@@ -87,7 +87,6 @@ const News: React.FC<NewsProps> = ({ data, is90s }) => {
 
 News.defaultProps = {
   data: [],
-  is90s: false,
 };
 
 export default News;

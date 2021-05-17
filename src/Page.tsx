@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useSelector } from "react-redux";
 import { Container, ThemeProvider, CssBaseline } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
-import { lightTheme, darkTheme, NinetysTheme } from "./Theme";
 import Header from "./Header";
 import News from "./News";
-import Control, { themeChoices } from "./Control";
+import Control from "./Control";
 import Footer from "./Footer";
 import { NewsItemProps } from "./News";
+import { wackyState } from "./connect/reducer";
 
 export const sections = {
   BOOKS: "books",
@@ -47,32 +48,17 @@ const Page: React.FC<PageProps> = ({ section }) => {
     fetchArticles();
   }, [fetchArticles]);
 
-  const [theme, setTheme] = useState<object>(lightTheme);
-  const [themeChoice, setThemeChoice] = useState<string>(themeChoices.LIGHT);
-  const themeDictionary: { [key: string]: object } = {
-    [themeChoices.LIGHT]: lightTheme,
-    [themeChoices.DARK]: darkTheme,
-    [themeChoices.NINETYS]: NinetysTheme,
-  };
+  const theme = useSelector((state: wackyState) => state.theme);
   const appliedTheme = createMuiTheme(theme);
-  const handleChangeTheme = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selected = event.target.value;
-    setThemeChoice(selected);
-    setTheme(themeDictionary[selected]);
-  };
-  const is90s = themeChoice === themeChoices.NINETYS;
 
   return (
     <ThemeProvider theme={appliedTheme}>
       <CssBaseline />
       <Container>
-        <Header date={date} is90s={is90s} />
-        <Control
-          themeChoice={themeChoice}
-          handleChangeTheme={handleChangeTheme}
-        />
-        <News data={data} is90s={is90s} />
-        <Footer themeChoice={themeChoice} is90s={is90s} />
+        <Header date={date} />
+        <Control />
+        <News data={data} />
+        <Footer />
       </Container>
     </ThemeProvider>
   );

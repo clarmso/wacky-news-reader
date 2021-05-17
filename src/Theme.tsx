@@ -27,7 +27,7 @@ export const darkTheme = {
   },
 };
 
-export const NinetysTheme = {
+export const ninetysTheme = {
   palette: {
     background: {
       paper: "hotpink",
