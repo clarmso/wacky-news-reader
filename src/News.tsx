@@ -4,6 +4,7 @@ import { Grid, Card, CardContent, Typography, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import newgif from "./img/new.gif";
 import { WackyState } from "./connect/reducer";
+import { formatDate } from "./utilities/date";
 
 export type NewsItemProps = {
   title: string;
@@ -31,14 +32,7 @@ const NewsItem: React.FC<NewsItemProps> = ({
   url,
 }) => {
   const classes = useStyles();
-  const formattedDate = new Intl.DateTimeFormat("default", {
-    hour: "numeric",
-    minute: "numeric",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
-  }).format(Date.parse(updated_date));
+  const formattedDate = formatDate(updated_date);
   return (
     <Grid item>
       <Card className={classes.card}>
