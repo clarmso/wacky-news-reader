@@ -3,14 +3,14 @@ import { useSelector } from "react-redux";
 
 import { Grid } from "@material-ui/core";
 import { darkTheme } from "./Theme";
-import { wackyState } from "./connect/reducer";
+import { WackyState } from "./connect/reducer";
 import ie from "./img/ms-icon.gif";
 import nytimesLogoLight from "./img/poweredby_nytimes_200a.png";
 import nytimesLogoDark from "./img/poweredby_nytimes_200c.png";
 
 const Footer: React.FC = () => {
-  const is90s = useSelector((state: wackyState) => state.is90s);
-  const themeChoice = useSelector((state: wackyState) => state.theme);
+  const is90s = useSelector((state: WackyState) => state.is90s);
+  const themeChoice = useSelector((state: WackyState) => state.theme);
 
   return (
     <Grid container spacing={5} justify="center">

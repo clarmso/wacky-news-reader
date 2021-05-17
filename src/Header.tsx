@@ -4,14 +4,11 @@ import { useSelector } from "react-redux";
 import { Grid, Typography } from "@material-ui/core";
 
 import retroHeader from "./img/wordart.png";
-import { wackyState } from "./connect/reducer";
+import { WackyState } from "./connect/reducer";
 
-type HeaderProps = {
-  date: string;
-};
-
-const Header: React.FC<HeaderProps> = ({ date }) => {
-  const is90s = useSelector((state: wackyState) => state.is90s);
+const Header: React.FC = () => {
+  const is90s = useSelector((state: WackyState) => state.is90s);
+  const date = useSelector((state: WackyState) => state.lastUpdated);
   return (
     <Grid container spacing={5} justify="center">
       <Grid item>
@@ -36,10 +33,6 @@ const Header: React.FC<HeaderProps> = ({ date }) => {
       </Grid>
     </Grid>
   );
-};
-
-Header.defaultProps = {
-  date: "",
 };
 
 export default Header;

@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Container, ThemeProvider, CssBaseline } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import Header from "./Header";
 import News from "./News";
 import Control from "./Control";
 import Footer from "./Footer";
-import { NewsItemProps } from "./News";
-import { wackyState } from "./connect/reducer";
+import { WackyState } from "./connect/reducer";
+import { fetchArticles } from "./connect/actions";
 
 export const sections = {
   BOOKS: "books",
@@ -24,40 +24,22 @@ type PageProps = {
 };
 
 const Page: React.FC<PageProps> = ({ section }) => {
-  const [data, setData] = useState<NewsItemProps[]>([]);
-  const [date, setDate] = useState<string>("");
-
-  const fetchArticles = useCallback(async () => {
-    try {
-      const url = new URL(
-        `https://api.nytimes.com/svc/topstories/v2/${section}.json`
-      );
-      const apiKey = "" + import.meta.env.VITE_NYT_API_KEY;
-      url.searchParams.append("api-key", apiKey);
-      const response = await fetch(url.href);
-      const data = await response.json();
-
-      setData(data.results);
-      setDate(data.last_updated);
-    } catch (error) {
-      console.log(error);
-    }
-  }, [section]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchArticles();
-  }, [fetchArticles]);
+    dispatch(fetchArticles(section));
+  }, [dispatch]);
 
-  const theme = useSelector((state: wackyState) => state.theme);
+  const theme = useSelector((state: WackyState) => state.theme);
   const appliedTheme = createMuiTheme(theme);
 
   return (
     <ThemeProvider theme={appliedTheme}>
       <CssBaseline />
       <Container>
-        <Header date={date} />
+        <Header />
         <Control />
-        <News data={data} />
+        <News />
         <Footer />
       </Container>
     </ThemeProvider>
