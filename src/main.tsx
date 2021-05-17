@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import thunk from "redux-thunk";
+import thunkMiddleware from "redux-thunk";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -14,7 +14,7 @@ import Page, { sections } from "./Page";
 import About from "./About";
 import wackyReducer from "./connect/reducer";
 
-const middleware = composeWithDevTools(applyMiddleware(thunk));
+const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware));
 const store = createStore(wackyReducer, middleware);
 
 ReactDOM.render(
