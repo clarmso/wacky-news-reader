@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies 🔧
         run: npm ci
 
+      - name: Run jest component tests  ✅
+        run: npm run test:jest
+
       - name: Build production code 🏗️👷
         env:
           API_KEY: ${{ secrets.API_KEY }}
