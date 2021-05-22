@@ -36,7 +36,7 @@ export const fetchArticles = (section: string) => {
       const url = new URL(
         `https://api.nytimes.com/svc/topstories/v2/${section}.json`
       );
-      const apiKey = "" + import.meta.env.VITE_NYT_API_KEY;
+      const apiKey = "" + process.env.REACT_APP_NYT_API_KEY;
       url.searchParams.append("api-key", apiKey);
       const response = await fetch(url.href);
       const data = await response.json();

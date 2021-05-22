@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { Grid, Radio, RadioGroup, FormControlLabel } from "@material-ui/core";
 

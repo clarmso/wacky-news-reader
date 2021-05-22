@@ -36,13 +36,12 @@ jobs:
         env:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
-          echo VITE_NYT_API_KEY="$API_KEY" > .env
-          npm run build
+          REACT_APP_NYT_API_KEY="$API_KEY" npm run build
 
       - name: Run e2e tests (Chrome) ✅
         uses: cypress-io/github-action@v2
         with:
-          start: npm run serve:ci
+          start: npm run serve
           wait-on: http://localhost:5000
           browser: chrome
           headless: true
@@ -54,7 +53,7 @@ jobs:
       - name: Run e2e tests (Firefox) ✅
         uses: cypress-io/github-action@v2
         with:
-          start: npm run serve:ci
+          start: npm run serve
           wait-on: http://localhost:5000
           browser: chrome
           headless: true

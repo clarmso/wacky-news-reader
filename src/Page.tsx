@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, ThemeProvider, CssBaseline } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -28,7 +28,7 @@ const Page: React.FC<PageProps> = ({ section }) => {
 
   useEffect(() => {
     dispatch(fetchArticles(section));
-  }, [dispatch]);
+  }, [section, dispatch]);
 
   const theme = useSelector((state: WackyState) => state.theme);
   const appliedTheme = createMuiTheme(theme);

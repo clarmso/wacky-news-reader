@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Typography } from "@material-ui/core";
 
 const About: React.FC = () => {
