@@ -8,21 +8,25 @@ The web application has been deployed: https://wacky-news-reader.web.app/.
 
 1. Create an account from [The New York Times Developer Network](https://developer.nytimes.com/apis). Create an API key and enable "Top Stories API".
 1. Create a file `.env` in the topmost directory of this project. Put the API key (_not_ the secret) in the file:
-   `VITE_NYT_API_KEY=<API Key>`.
+   `REACT_APP_NYT_API_KEY=<API Key>`.
 1. Install the dependencies: `npm ci`.
-1. Start the development server: `npm run dev``
+1. Start the development server: `npm run start`
 1. Open `http://localhost:3000` from a browser.
 
 ## Running Tests ✅
 
-TODO: React component tests
+The component tests are located in `src/__tests__`.
 
-The end-to-end tests are located in `cypress/integration`. Here is how to run them:
+1. Run jest in watch mode: `npm run test:jest`
+
+The end-to-end tests are located in `cypress/integration`. Here is how you run the test in the interactive runner:
 
 1. Ensure Chrome and Firefox browsers have been installed.
 1. Run the development server. Ensure `http://localhost:3000` is up and running from the previous section.
 1. Open Cypress: `npx cypress open`.
 1. Select the desired browser (Chrome or Firefox) and click the test to run.
+
+Cypress also offers us to run the test in headless mode: `npx cypress run --headless --browser chrome`.
 
 ## Deploy to Firebase 🔥
 
