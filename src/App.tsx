@@ -1,5 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom";
 import thunkMiddleware from "redux-thunk";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
@@ -11,14 +9,13 @@ import {
   Redirect,
 } from "react-router-dom";
 import Page, { sections } from "./Page";
-import About from "./About";
 import wackyReducer from "./connect/reducer";
 
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware));
 const store = createStore(wackyReducer, middleware);
 
-ReactDOM.render(
-  <React.StrictMode>
+const App = () => {
+  return (
     <Provider store={store}>
       <Router>
         <Switch>
@@ -30,11 +27,11 @@ ReactDOM.render(
               </Route>
             );
           })}
-          <Route path="/about" exact component={About} />
           <Redirect to="/" />
         </Switch>
       </Router>
     </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+  );
+};
+
+export default App;
