@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Grid, Card, CardContent, Typography, Link } from "@material-ui/core";
+import { Grid, Card, CardContent, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import newgif from "./img/new.gif";
 import { WackyState } from "./connect/reducer";
 import { formatDate } from "./utilities/date";
+import MyLink from "./MyLink";
 
 export type NewsItemProps = {
   title: string;
@@ -39,9 +40,9 @@ const NewsItem: React.FC<NewsItemProps> = ({
         <CardContent>
           <Typography variant="h5" component="h2" gutterBottom={true}>
             {is90s && <img src={newgif} alt="New" />}
-            <Link href={url} rel="noreferrer" target="_blank" color="inherit">
+            <MyLink href={url} isInherit={true}>
               {title}
-            </Link>
+            </MyLink>
           </Typography>
           <Typography variant="subtitle2" gutterBottom={true}>
             {byline}
