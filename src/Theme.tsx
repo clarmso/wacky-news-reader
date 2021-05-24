@@ -1,4 +1,5 @@
-import backgroundImage90s from "./img/pattern90s.png";
+import { Palette } from "@material-ui/icons";
+import backgroundImage90s from "./img/snowing.gif";
 
 export const lightTheme = {
   overrides: {
@@ -15,6 +16,9 @@ export const lightTheme = {
 export const darkTheme = {
   palette: {
     type: "dark",
+    primary: {
+      main: "#fafafa",
+    },
   },
   overrides: {
     MuiCssBaseline: {
@@ -31,7 +35,6 @@ export const ninetysTheme = {
   palette: {
     background: {
       paper: "hotpink",
-      default: "hotpink",
     },
   },
   typography: {

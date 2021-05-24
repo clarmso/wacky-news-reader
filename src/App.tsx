@@ -9,7 +9,6 @@ import {
   Redirect,
 } from "react-router-dom";
 import Page, { sections } from "./Page";
-import About from "./About";
 import wackyReducer from "./connect/reducer";
 
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware));
@@ -28,7 +27,6 @@ const App = () => {
               </Route>
             );
           })}
-          <Route path="/about" exact component={About} />
           <Redirect to="/" />
         </Switch>
       </Router>
