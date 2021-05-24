@@ -22,17 +22,24 @@ export const setDarkMode = () => {
   };
 };
 
-export const setNews = (news: NewsItemProps[], lastUpdated: string) => {
+export const setNews = (
+  news: NewsItemProps[],
+  section: string,
+  lastUpdated: string
+) => {
   return {
     type: SET_NEWS,
     news: news,
     lastUpdated: lastUpdated,
+    section: section,
   };
 };
 
 export const fetchArticles = (section: string) => {
   return async (dispatch: Dispatch<WackyAction>) => {
     try {
+      dispatch(setNews([], section, ""));
+
       const url = new URL(
         `https://api.nytimes.com/svc/topstories/v2/${section}.json`
       );
@@ -41,7 +48,7 @@ export const fetchArticles = (section: string) => {
       const response = await fetch(url.href);
       const data = await response.json();
 
-      dispatch(setNews(data.results, data.last_updated));
+      dispatch(setNews(data.results, section, data.last_updated));
     } catch (error) {
       console.log(error);
     }
