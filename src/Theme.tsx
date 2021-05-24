@@ -1,4 +1,3 @@
-import { Palette } from "@material-ui/icons";
 import backgroundImage90s from "./img/snowing.gif";
 
 export const lightTheme = {
