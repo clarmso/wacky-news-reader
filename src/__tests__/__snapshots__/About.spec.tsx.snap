@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders link 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-flex-end"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item"
+    >
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        data-cy="about-link"
+      >
+        About
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

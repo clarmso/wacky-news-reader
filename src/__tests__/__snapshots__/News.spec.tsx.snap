@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with 90s mode 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-xs-center"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item"
+    >
+      <div
+        class="MuiPaper-root MuiCard-root makeStyles-card-1 MuiPaper-elevation1 MuiPaper-rounded"
+      >
+        <div
+          class="MuiCardContent-root"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+          >
+            <img
+              alt="New"
+              src="new.gif"
+            />
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+              href="https://www.nytimes.com/2021/04/28/books/may-2021-new-books.html"
+              rel="noreferrer"
+              target="_blank"
+            >
+              15 New Books to Watch For in May
+            </a>
+          </h2>
+          <h6
+            class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-gutterBottom"
+          >
+            By Joumana Khatib
+          </h6>
+          <h6
+            class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-gutterBottom"
+          >
+            Saturday, May 1, 2021, 2:45 AM
+          </h6>
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            Buzzy new novels from Stacey Abrams, Jean Hanff Korelitz and Andy Weir; Michael Lewis’s take on the pandemic; Chimamanda Ngozi Adichie’s ode to grief and more.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`renders with initial state 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-xs-center"
+  />
+</DocumentFragment>
+`;
+
+exports[`renders with one news item 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-xs-center"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item"
+    >
+      <div
+        class="MuiPaper-root MuiCard-root makeStyles-card-2 MuiPaper-elevation1 MuiPaper-rounded"
+      >
+        <div
+          class="MuiCardContent-root"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+          >
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+              href="https://www.nytimes.com/2021/04/28/books/may-2021-new-books.html"
+              rel="noreferrer"
+              target="_blank"
+            >
+              15 New Books to Watch For in May
+            </a>
+          </h2>
+          <h6
+            class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-gutterBottom"
+          >
+            By Joumana Khatib
+          </h6>
+          <h6
+            class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-gutterBottom"
+          >
+            Saturday, May 1, 2021, 2:45 AM
+          </h6>
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            Buzzy new novels from Stacey Abrams, Jean Hanff Korelitz and Andy Weir; Michael Lewis’s take on the pandemic; Chimamanda Ngozi Adichie’s ode to grief and more.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
