@@ -23,7 +23,9 @@ const About: React.FC = () => {
     <>
       <Grid container justify="flex-end">
         <Grid item>
-          <Link onClick={handleOpen}>About</Link>
+          <Link onClick={handleOpen} data-cy="about-link">
+            About
+          </Link>
         </Grid>
       </Grid>
       <Dialog
@@ -31,6 +33,7 @@ const About: React.FC = () => {
         onClose={handleClose}
         aria-labelledby="About Wacky News Reader"
         aria-describedby="About Wacky News Reader"
+        data-cy="about-modal"
       >
         <DialogTitle>About Wacky News Reader</DialogTitle>
         <DialogContent>
@@ -68,7 +71,7 @@ const About: React.FC = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button autoFocus onClick={handleClose} data-cy="close-modal-button">
             Close
           </Button>
         </DialogActions>
