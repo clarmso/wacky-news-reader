@@ -1,5 +1,5 @@
 export const formatDate = (date: string) => {
-  const formattedDate = new Intl.DateTimeFormat("default", {
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
     hour: "numeric",
     minute: "numeric",
     day: "numeric",

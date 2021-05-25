@@ -38,7 +38,7 @@ exports[`renders with 90s mode 1`] = `
           <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-gutterBottom"
           >
-            Friday, April 30, 2021, 10:45 PM
+            Saturday, May 1, 2021, 2:45 AM
           </h6>
           <p
             class="MuiTypography-root MuiTypography-body1"
@@ -94,7 +94,7 @@ exports[`renders with one news item 1`] = `
           <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-gutterBottom"
           >
-            Friday, April 30, 2021, 10:45 PM
+            Saturday, May 1, 2021, 2:45 AM
           </h6>
           <p
             class="MuiTypography-root MuiTypography-body1"

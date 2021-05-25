@@ -22,7 +22,7 @@
   "scripts": {
     "start": "BROWSER=none react-scripts start",
     "build": "tsc && react-scripts build",
-    "test:jest": "react-scripts test",
+    "test:jest": "TZ=UTC react-scripts test",
     "test:cypress": "cypress run --browser chrome --headless",
     "serve": "firebase emulators:start",
     "eject": "react-scripts eject"
