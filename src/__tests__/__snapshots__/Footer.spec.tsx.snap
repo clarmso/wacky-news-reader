@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with initial state 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 MuiGrid-justify-xs-center"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item"
+    >
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        href="https://developer.nytimes.com"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Powered by New York Times"
+          src="poweredby_nytimes_200a.png"
+        />
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -18,7 +18,7 @@ export type WackyAction = {
   lastUpdated: string;
 };
 
-const initialState: WackyState = {
+export const initialState: WackyState = {
   is90s: false,
   theme: lightTheme,
   news: [],
