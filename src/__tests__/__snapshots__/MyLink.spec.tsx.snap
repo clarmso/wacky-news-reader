@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders properly 1`] = `
+<DocumentFragment>
+  <a
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+    href="https://duckduckgo.com"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Duck!
+  </a>
+</DocumentFragment>
+`;
+
+exports[`set isInherit property 1`] = `
+<DocumentFragment>
+  <a
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+    href="https://duckduckgo.com"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Duck!
+  </a>
+</DocumentFragment>
+`;
