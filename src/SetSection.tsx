@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Grid,
@@ -6,22 +7,25 @@ import {
   FormControl,
   InputLabel,
   MenuItem,
-  Link,
 } from "@material-ui/core";
 import { WackyState } from "./connect/reducer";
 import { sections } from "./Page";
 import { fetchArticles } from "./connect/actions";
 
 const SetSection: React.FC = () => {
-  const dispatch = useDispatch();
   const currentSection = useSelector((state: WackyState) => state.section);
 
   const [section, setSection] = useState(currentSection);
   const [openSelect, setOpenSelect] = useState(false);
 
+  const dispatch = useDispatch();
+
+  const history = useHistory();
+
   const handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     const newSection = event.target.value as string;
     setSection(newSection);
+    history.push(`/${newSection}`);
     dispatch(fetchArticles(newSection));
   };
   const handleSelectOpen = () => {
