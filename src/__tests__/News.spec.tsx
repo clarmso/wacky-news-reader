@@ -3,6 +3,8 @@ import { createStore } from "redux";
 import { render } from "@testing-library/react";
 import News from "../News";
 import wackyReducer, { initialState } from "../connect/reducer";
+import { themeChoices } from "../SetTheme";
+import { ninetysTheme, lightTheme } from "../Theme";
 
 it("renders with initial state", () => {
   const store = createStore(wackyReducer, initialState);
@@ -19,6 +21,8 @@ it("renders with 90s mode", () => {
   const store = createStore(wackyReducer, {
     ...initialState,
     is90s: true,
+    theme: ninetysTheme,
+    themeChoice: themeChoices.NINETYS,
     news: [
       {
         title: "15 New Books to Watch For in May",
@@ -45,6 +49,8 @@ it("renders with one news item", () => {
   const store = createStore(wackyReducer, {
     ...initialState,
     is90s: false,
+    theme: lightTheme,
+    themeChoice: themeChoices.LIGHT,
     news: [
       {
         title: "15 New Books to Watch For in May",

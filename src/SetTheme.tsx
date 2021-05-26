@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Grid, Radio, RadioGroup, FormControlLabel } from "@material-ui/core";
 
 import { set90sMode, setLightMode, setDarkMode } from "./connect/actions";
+import { WackyState } from "./connect/reducer";
 
 export const themeChoices = {
   LIGHT: "light",
@@ -12,7 +13,8 @@ export const themeChoices = {
 };
 
 const SetTheme: React.FC = () => {
-  const [themeChoice, setThemeChoice] = useState(themeChoices.LIGHT);
+  const theme = useSelector((state: WackyState) => state.themeChoice);
+  const [themeChoice, setThemeChoice] = useState(theme);
 
   const dispatch = useDispatch();
 
