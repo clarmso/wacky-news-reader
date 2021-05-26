@@ -23,8 +23,16 @@ exports[`renders with 90s mode 1`] = `
       class="MuiGrid-root MuiGrid-item"
     >
       <img
+        alt="Frog reading news"
+        src="newspaperfrog.gif"
+      />
+      <img
         alt="Wacky News Reader Header"
         src="wordart.png"
+      />
+      <img
+        alt="Flipping newspaper"
+        src="newspaper.gif"
       />
       <h6
         class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
