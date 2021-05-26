@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Grid, Radio, RadioGroup, FormControlLabel } from "@material-ui/core";
+import {
+  Grid,
+  Radio,
+  RadioGroup,
+  FormControl,
+  FormLabel,
+  FormControlLabel,
+} from "@material-ui/core";
 
 import { set90sMode, setLightMode, setDarkMode } from "./connect/actions";
 import { WackyState } from "./connect/reducer";
@@ -40,8 +47,9 @@ const SetTheme: React.FC = () => {
   };
 
   return (
-    <Grid container spacing={5} justify="center">
-      <Grid item>
+    <Grid item xs>
+      <FormControl>
+        <FormLabel component="legend">Mode</FormLabel>
         <RadioGroup
           name="modes"
           value={themeChoice}
@@ -51,23 +59,23 @@ const SetTheme: React.FC = () => {
           <FormControlLabel
             value={themeChoices.LIGHT}
             control={<Radio color="primary" />}
-            label="Light Mode"
+            label="Light"
             data-cy="light-mode"
           />
           <FormControlLabel
             value={themeChoices.DARK}
             control={<Radio color="primary" />}
-            label="Dark Mode"
+            label="Dark"
             data-cy="dark-mode"
           />
           <FormControlLabel
             value={themeChoices.NINETYS}
             control={<Radio color="primary" />}
-            label="90s Mode"
+            label="90s 🎉"
             data-cy="90s-mode"
           />
         </RadioGroup>
-      </Grid>
+      </FormControl>
     </Grid>
   );
 };
