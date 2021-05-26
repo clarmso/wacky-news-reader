@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
           </Grid>
         </Grid>
       )}
-      <Grid container spacing={5} justify="center">
+      <Grid container spacing={5} justify="space-around" alignItems="baseline">
         <Grid item>
           <MyLink href="https://developer.nytimes.com">
             <img src={nytimesLogoLight} alt="Powered by New York Times" />

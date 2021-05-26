@@ -5,7 +5,7 @@ import {
   Grid,
   Select,
   FormControl,
-  InputLabel,
+  FormLabel,
   MenuItem,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -45,34 +45,32 @@ const SetSection: React.FC = () => {
   };
 
   return (
-    <Grid container spacing={5} justify="center">
-      <Grid item>
-        <FormControl>
-          <InputLabel>Section</InputLabel>
-          <Select
-            open={openSelect}
-            onClose={handleSelectClose}
-            onOpen={handleSelectOpen}
-            value={section}
-            onChange={handleSelectChange}
-            className={classes.menuItem}
-            data-cy="section-menu"
-          >
-            {Object.values(sections).map((section: string) => {
-              return (
-                <MenuItem
-                  value={section}
-                  key={`menu-item-${section}`}
-                  data-cy={`menu-item-${section}`}
-                  className={classes.menuItem}
-                >
-                  {section}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        </FormControl>
-      </Grid>
+    <Grid item xs>
+      <FormControl>
+        <FormLabel component="legend">Section</FormLabel>
+        <Select
+          open={openSelect}
+          onClose={handleSelectClose}
+          onOpen={handleSelectOpen}
+          value={section}
+          onChange={handleSelectChange}
+          className={classes.menuItem}
+          data-cy="section-menu"
+        >
+          {Object.values(sections).map((section: string) => {
+            return (
+              <MenuItem
+                value={section}
+                key={`menu-item-${section}`}
+                data-cy={`menu-item-${section}`}
+                className={classes.menuItem}
+              >
+                {section}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      </FormControl>
     </Grid>
   );
 };
