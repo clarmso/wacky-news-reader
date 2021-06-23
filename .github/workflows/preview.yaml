@@ -16,6 +16,12 @@ jobs:
     name: Build, test and preview 🏗️
     runs-on: ubuntu-20.04
     steps:
+      - name: Dump sources.list files
+        run: |
+          ls /etc/apt/
+          cat /etc/apt/sources.list
+          cat /etc/apt/sources.list.d
+
       - uses: actions/checkout@v2
 
       - name: Cache node modules 🚚
