@@ -19,8 +19,8 @@ jobs:
       - name: Dump sources.list files
         run: |
           ls /etc/apt/
+          echo "*** Here we go! ***"
           cat /etc/apt/sources.list
-          cat /etc/apt/sources.list.d
 
       - uses: actions/checkout@v2
 
