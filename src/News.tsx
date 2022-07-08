@@ -64,17 +64,20 @@ const News: React.FC = () => {
     <Grid container spacing={2} justify="center">
       {data &&
         data.map((d: NewsItemProps) => {
-          return (
-            <NewsItem
-              title={d.title}
-              byline={d.byline}
-              updated_date={d.updated_date}
-              abstract={d.abstract}
-              is90s={is90s}
-              url={d.url}
-              key={d.uri}
-            />
-          );
+          if (d.title) {
+            return (
+              <NewsItem
+                title={d.title}
+                byline={d.byline}
+                updated_date={d.updated_date}
+                abstract={d.abstract}
+                is90s={is90s}
+                url={d.url}
+                key={d.uri}
+              />
+            );
+          }
+          return null;
         })}
     </Grid>
   );
