@@ -51,7 +51,7 @@ jobs:
           config: baseUrl=http://localhost:5000
           record: false
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_WACKY_NEWS_READER }}
 
       - name: Run e2e tests (Firefox) ✅
         uses: cypress-io/github-action@v2
@@ -63,11 +63,11 @@ jobs:
           config: baseUrl=http://localhost:5000
           record: false
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_WACKY_NEWS_READER }}
 
       - name: Preview on Firebase 👀
         uses: w9jds/firebase-action@master
         with:
           args: hosting:channel:deploy preview
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_WACKY_NEWS_READER }}
