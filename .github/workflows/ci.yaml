@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/ci.yaml"
+      - "src/**"
+      - "public/**"
+
+defaults:
+  run:
+    working-directory: .
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 25
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production code
+        env:
+          REACT_APP_NYT_API_KEY: ${{ secrets.REACT_APP_NYT_API_KEY }}
+        run: npm run build
